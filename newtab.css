@@ -1,0 +1,58 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, "Times New Roman", serif; background: #faf9f6; color: #222; padding: 1.5rem 2rem; font-size: 16px; }
+
+header { display: flex; align-items: center; gap: 1rem; border-bottom: 2px solid #222; padding-bottom: .6rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+header h1 { font-size: 1.6rem; letter-spacing: .05em; text-transform: uppercase; }
+.add-row { display: flex; gap: .3rem; flex: 1; min-width: 200px; }
+.add-row input { flex: 1; padding: .35rem .5rem; border: 1px solid #bbb; font-size: .85rem; font-family: inherit; }
+.add-row button { padding: .35rem .8rem; border: 1px solid #999; background: #f5f5f5; cursor: pointer; font-family: inherit; font-size: .85rem; }
+.add-row button:hover { background: #e8e8e8; }
+.header-controls { display: flex; gap: .5rem; align-items: center; }
+.header-controls select { padding: .3rem; font-size: .85rem; font-family: inherit; }
+header button { background: none; border: 1px solid #999; padding: .35rem .8rem; cursor: pointer; font-family: inherit; font-size: .85rem; }
+header button:hover { background: #eee; }
+
+.status { font-size: .85rem; padding: .3rem 0; min-height: 1.2em; }
+.status.error { color: #c00; }
+
+#feeds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem 2rem; }
+.feed { margin-bottom: 0; padding-bottom: 1rem; border-bottom: 1px solid #ddd; }
+.feed h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .4rem; border-bottom: 1px solid #bbb; padding-bottom: .25rem; display: flex; align-items: center; gap: .4rem; }
+.feed h2 a { color: #222; text-decoration: none; flex: 1; }
+.feed h2 a:hover { text-decoration: underline; }
+.feed-icon { vertical-align: middle; flex-shrink: 0; }
+.feed-del { background: none; border: none; color: #bbb; cursor: pointer; font-size: 1.1rem; padding: 0 .2rem; line-height: 1; }
+.feed-del:hover { color: #c00; }
+.feed ul { list-style: none; }
+.feed li { font-size: .95rem; line-height: 1.45; margin-bottom: .2rem; }
+.feed li a { color: #333; text-decoration: none; }
+.feed li a:hover { text-decoration: underline; color: #000; }
+.item-date { font-size: .75rem; color: #aaa; margin-left: .4rem; }
+.feed .more { font-size: .85rem; color: #666; cursor: pointer; border: none; background: none; font-family: inherit; padding: .15rem 0; }
+.feed .more:hover { color: #000; }
+
+.empty { text-align: center; padding: 3rem; color: #888; font-size: 1.1rem; }
+
+/* Import Bookmarks Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.4); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.modal-overlay[hidden] { display: none; }
+.modal { background: #faf9f6; border: 2px solid #222; padding: 1.5rem; min-width: 350px; max-width: 500px; max-height: 80vh; display: flex; flex-direction: column; font-family: inherit; }
+.modal h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .8rem; }
+.import-progress { font-size: .9rem; color: #666; padding: .5rem 0; }
+.import-list { overflow-y: auto; max-height: 50vh; display: flex; flex-direction: column; gap: .25rem; }
+.import-item { display: flex; align-items: center; gap: .5rem; font-size: .9rem; cursor: pointer; padding: .2rem 0; }
+.import-item input { margin: 0; }
+.import-actions { display: flex; gap: .5rem; margin-top: .8rem; }
+.import-actions button { padding: .35rem .8rem; border: 1px solid #999; background: #f5f5f5; cursor: pointer; font-family: inherit; font-size: .85rem; }
+.import-actions button:hover { background: #e8e8e8; }
+
+@media (max-width: 1100px) { #feeds { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { #feeds { grid-template-columns: 1fr; } body { padding: 1rem; } }
+
+/* Side panel mode */
+body.sidepanel { padding: .8rem; }
+body.sidepanel #feeds { grid-template-columns: 1fr; }
+body.sidepanel .feed h2 { font-size: .9rem; }
+body.sidepanel .feed li { font-size: .85rem; }
+body.sidepanel .feed li.active { background: #fff3cd; border-radius: 3px; margin-left: -.3rem; padding: .15rem .3rem; }
+body.sidepanel .feed li.active a { color: #000; font-weight: 600; }

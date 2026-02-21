@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, "Times New Roman", serif; width: 220px; padding: .5rem 0; }
+    button { display: block; width: 100%; text-align: left; padding: .55rem .8rem; border: none; background: none; font-family: inherit; font-size: .85rem; cursor: pointer; color: #222; }
+    button:hover { background: #f0efec; }
+    #status { font-size: .8rem; color: #888; padding: .3rem .8rem; display: none; }
+    #status.error { color: #c00; }
+    #status.ok { color: #2a7; }
+  </style>
+</head>
+<body>
+  <button id="open-reader">Open RSS Reader</button>
+  <button id="add-site">Add This Website</button>
+  <button id="open-panel">Open Side Panel</button>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

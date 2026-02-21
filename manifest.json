@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Calm RSS",
+  "version": "1.0",
+  "description": "A calm RSS reader — no inbox, no unread counts. Just headlines.",
+  "permissions": ["storage", "alarms", "sidePanel", "tabs", "bookmarks"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "Calm RSS",
+    "default_popup": "popup.html"
+  }
+}

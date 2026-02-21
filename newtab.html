@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Calm RSS</title>
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <header>
+    <h1>Calm RSS</h1>
+    <div class="add-row">
+      <input id="url-input" type="url" placeholder="Website or feed URL...">
+      <button id="btn-add">Add</button>
+    </div>
+    <div class="header-controls">
+      <select id="sort-select">
+        <option value="custom">Custom Order</option>
+        <option value="frequency">Most Read</option>
+        <option value="recent">Recently Added</option>
+      </select>
+      <button id="btn-refresh">Refresh</button>
+      <button id="btn-panel">Side Panel</button>
+      <button id="btn-import">Import Bookmarks</button>
+    </div>
+  </header>
+  <div id="status"></div>
+  <div id="feeds"></div>
+  <div id="import-modal" class="modal-overlay" hidden>
+    <div class="modal">
+      <h2>Import Bookmarks</h2>
+      <div id="import-progress" class="import-progress">Scanning bookmarks for feeds…</div>
+      <div id="import-list" class="import-list" hidden></div>
+      <div id="import-actions" class="import-actions" hidden>
+        <button id="import-add">Add Selected</button>
+        <button id="import-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script src="newtab.js"></script>
+</body>
+</html>
