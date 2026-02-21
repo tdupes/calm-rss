@@ -1,6 +1,11 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Georgia, "Times New Roman", serif; background: #faf9f6; color: #222; padding: 1.5rem 2rem; font-size: 16px; }
 
+/* Font options */
+body[data-font="sans"] { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+body[data-font="palatino"] { font-family: Palatino, "Palatino Linotype", "Book Antiqua", serif; }
+body[data-font="baskerville"] { font-family: "Baskerville", "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; }
+
 header { display: flex; align-items: center; gap: 1rem; border-bottom: 2px solid #222; padding-bottom: .6rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
 header h1 { font-size: 1.6rem; letter-spacing: .05em; text-transform: uppercase; }
 .add-row { display: flex; gap: .3rem; flex: 1; min-width: 200px; }

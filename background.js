@@ -70,7 +70,7 @@ async function getStore() {
   return {
     feeds: data.feeds || [],
     feedItems: data.feedItems || {},
-    settings: data.settings || { sortBy: "custom", refreshInterval: 30 },
+    settings: data.settings || { sortBy: "custom", refreshInterval: 30, font: "serif" },
   };
 }
 

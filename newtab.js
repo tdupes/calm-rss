@@ -93,7 +93,11 @@ function renderFeeds(container, feeds, feedItems, sortBy) {
           if (diffDays === 0) span.textContent = "today";
           else if (diffDays === 1) span.textContent = "1d";
           else if (diffDays < 30) span.textContent = diffDays + "d";
-          else span.textContent = date.toLocaleDateString("en", { month: "short", day: "numeric" });
+          else {
+            const opts = { month: "short", day: "numeric" };
+            if (date.getFullYear() !== now.getFullYear()) opts.year = "numeric";
+            span.textContent = date.toLocaleDateString("en", opts);
+          }
           li.appendChild(span);
         }
       }
@@ -124,6 +128,9 @@ async function load() {
   const container = document.getElementById("feeds");
   const sortSelect = document.getElementById("sort-select");
   if (sortSelect) sortSelect.value = store.settings.sortBy;
+  const fontSelect = document.getElementById("font-select");
+  if (fontSelect) fontSelect.value = store.settings.font || "serif";
+  document.body.dataset.font = store.settings.font || "serif";
   renderFeeds(container, store.feeds, store.feedItems, store.settings.sortBy);
 }
 
@@ -265,6 +272,15 @@ document.getElementById("sort-select")?.addEventListener("change", async (e) => 
   store.settings.sortBy = e.target.value;
   await chrome.runtime.sendMessage({ type: "saveSettings", settings: store.settings });
   load();
+});
+
+// --- Font picker ---
+
+document.getElementById("font-select")?.addEventListener("change", async (e) => {
+  const store = await chrome.runtime.sendMessage({ type: "getStore" });
+  store.settings.font = e.target.value;
+  document.body.dataset.font = e.target.value;
+  await chrome.runtime.sendMessage({ type: "saveSettings", settings: store.settings });
 });
 
 // --- Side panel: highlight active article ---
