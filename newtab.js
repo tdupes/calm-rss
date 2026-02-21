@@ -149,6 +149,7 @@ document.getElementById("btn-refresh")?.addEventListener("click", async () => {
 document.getElementById("btn-panel")?.addEventListener("click", () => {
   chrome.sidePanel?.open?.({ windowId: chrome.windows?.WINDOW_ID_CURRENT });
 });
+if (!chrome.sidePanel) document.getElementById("btn-panel")?.remove();
 
 // --- Add feed ---
 
